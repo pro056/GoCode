@@ -12,8 +12,8 @@ class User(models.Model):
 	spoj_handle = models.CharField(max_length=50, default = '-')
 	hackere_handle = models.CharField(max_length=50, default = '-')
 	hackerr_handle = models.CharField(max_length=50, default = '-')
-	kaggle_handle  = models.CharField(max_length=50, default = '-')
-
+	kaggle_handle  = models.CharField(max_length=49, default = '-')
+	
 class Running_Contests(models.Model):
 	contest_name = models.CharField (max_length = 128)
 	contest_duration = models.CharField(max_length =10)
@@ -21,6 +21,7 @@ class Running_Contests(models.Model):
 	contest_end_time = models.CharField(max_length =15)
 	contest_site = models.URLField()
 	contest_status = models.PositiveSmallIntegerField(default=2)
+
 
 
 class Future_Contests(models.Model):
