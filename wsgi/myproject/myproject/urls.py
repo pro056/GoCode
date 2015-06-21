@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from views import *
-from . import views
+
 
 urlpatterns = patterns('',
     # Examples:
@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^createuser', views.createUser),
-    url(r'^test', views.index)
+    url(r'^createuser/$', createUser),
+    url(r'^test/$', index)
     
 )
