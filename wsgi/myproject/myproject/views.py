@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from models import *
 import simplejson
+import requests
 from django.http import HttpResponse
 
 
