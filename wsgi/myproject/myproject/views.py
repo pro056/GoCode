@@ -5,9 +5,11 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from models import *
 import simplejson
+from django.http import HttpResponse
 
 
-
+def index(request):
+    return HttpResponse("Hello, world. You're at the polls index.")
 
 def createUser (request):
 	json_data = json.loads (request.body)
@@ -34,5 +36,8 @@ def setHandle (request):
 		user.hackerr_handle = handle
 	elif (handlesite == "kaggle"):
 		user.kaggle_handle = handle
+
+	return JSONResponse(status=201)
+	
 
 	
