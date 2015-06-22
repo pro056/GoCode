@@ -5,21 +5,33 @@ from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
 from models import *
 import simplejson
+import json
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 import requests
 from django.http import HttpResponse
 
 
+class JSONResponse(HttpResponse):
+    """
+    An HttpResponse that renders its content into JSON.
+    """
+    def __init__(self, data, **kwargs):
+        content = JSONRenderer().render(data)
+        kwargs['content_type'] = 'application/json'
+        super(JSONResponse, self).__init__(content, **kwargs)
+
 def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 
 @csrf_exempt
 def createUser (request):
-	json_data = json.loads (request.body)
-	newUser = User(user_id=json_data["userid"], password=json_data["passwd"], first_name=json_data["fname"], last_name=json_data["lname"], email_id=json_data["email"])
-	newUser.save()
-	return JSONResponse (status=201)
+	json_data = JSONParser().parse(request)
+	serializer = userSerializer(data=json_data)
+	if serializer.is_valid():
+		serializer.save()
+		return JSONResponse(serializer.data, status=201)
+    return JSONResponse(serializer.errors, status=400)
 
 @csrf_exempt
 def setHandle (request):
