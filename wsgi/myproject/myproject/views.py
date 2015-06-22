@@ -16,10 +16,10 @@ class JSONResponse(HttpResponse):
     """
     An HttpResponse that renders its content into JSON.
     """
-    def __init__(self, data, **kwargs):
-        content = JSONRenderer().render(data)
-        kwargs['content_type'] = 'application/json'
-        super(JSONResponse, self).__init__(content, **kwargs)
+	def __init__(self, data, **kwargs):
+		content = JSONRenderer().render(data)
+		kwargs['content_type'] = 'application/json'
+		super(JSONResponse, self).__init__(content, **kwargs)
 
 def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
@@ -31,7 +31,7 @@ def createUser (request):
 	if serializer.is_valid():
 		serializer.save()
 		return JSONResponse(serializer.data, status=201)
-    return JSONResponse(serializer.errors, status=400)
+	return JSONResponse(serializer.errors, status=400)
 
 @csrf_exempt
 def setHandle (request):
