@@ -5,7 +5,8 @@ from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
 from models import *
 import simplejson
-from rest_framework import *
+from rest_framework.renderers import JSONRenderer
+from rest_framework.parsers import JSONParser
 import requests
 from django.http import HttpResponse
 
