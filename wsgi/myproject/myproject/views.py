@@ -32,6 +32,7 @@ def createUser (request):
 	if serializer.is_valid():
 		serializer.save()
 		if (serializer1.is_valid()):
+			serializer1.save()
 			return JSONResponse(serializer1.data, status=400)
 		return JSONResponse(serializer.errors, status=400)
 	return JSONResponse(serializer.errors, status=400)
