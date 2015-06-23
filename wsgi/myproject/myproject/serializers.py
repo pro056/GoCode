@@ -1,5 +1,6 @@
 from django.forms import widgets
 from rest_framework import serializers
+from models import User
 
 class userSerializer (serializers.ModelSerializer):
 	class Meta:
