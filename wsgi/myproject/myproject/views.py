@@ -28,12 +28,11 @@ def createUser (request):
 	serializer = userSerializer(data=json_data)
 	if (User.objects.filter(user_id=json_data["user_id"])) :
 		user = User.objects.filter (user_id=json_data["user_id"]).delete()
-		
+	serializer1 = userSerializerSecure(data=json_data)
 	if serializer.is_valid():
 		serializer.save()
-		serializer = userSerializerSecure(data=json_data)
-		if (serializer.is_valid()):
-			return JSONResponse(serializer.data, status=201)
+		if (serializer1.is_valid()):
+			return JSONResponse(serializer1.data, status=400)
 		return JSONResponse(serializer.errors, status=400)
 	return JSONResponse(serializer.errors, status=400)
 
