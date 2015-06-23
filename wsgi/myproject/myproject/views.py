@@ -25,18 +25,8 @@ def index(request):
 @csrf_exempt
 def createUser (request):
 	json_data = JSONParser().parse(request)
-	serializer = userSerializer(data=json_data)
-	if (User.objects.filter(user_id=json_data["user_id"])) :
-		user = User.objects.filter (user_id=json_data["user_id"]).delete()
-	serializer1 = userSerializerSecure(data=json_data)
-	if serializer.is_valid():
-		serializer.save()
-		if (serializer1.is_valid()):
-			serializer1.save()
-			return JSONResponse(serializer1.data, status=400)
-		return JSONResponse(serializer.errors, status=400)
-	return JSONResponse(serializer.errors, status=400)
-
+	return JSONResponse(json_data, status = 400)
+	
 
 
 	
