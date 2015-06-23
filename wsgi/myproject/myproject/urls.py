@@ -10,6 +10,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^createuser/$', createUser),
-    url(r'^test/$', index)
+    url(r'^test/$', index),
+    url(r'^setHandle/$', setHandle)
     
 )
