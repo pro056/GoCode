@@ -31,6 +31,7 @@ def createUser (request):
 		
 	if serializer.is_valid():
 		serializer.save()
+		serializer = userSerializerSecure(data=json_data)
 		return JSONResponse(serializer.data, status=201)
 	return JSONResponse(serializer.errors, status=400)
 
