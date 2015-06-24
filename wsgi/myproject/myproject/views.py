@@ -54,7 +54,7 @@ def setHandle (request):
 		user.hackerr_handle = handle
 	elif (handleSite ==  'kaggle'):
 		user.kaggle_handle = handle 
-	user.save()
+#	user.save()
 	return JSONResponse(user, status=400)
 
 def getUsers (request):
