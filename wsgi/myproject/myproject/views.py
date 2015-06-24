@@ -34,6 +34,7 @@ def createUser (request):
 		return JSONResponse(serializer1.errors, status=400)
 	return JSONResponse(serializer.errors, status = 400)
 
+@csrf_exempt
 def setHandle (request):
 	json_data = JSONParser().parse(request)
 	user = User.objects.filter(user_id=json_data["user_id"])
