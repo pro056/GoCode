@@ -37,7 +37,7 @@ def createUser (request):
 @csrf_exempt
 def setHandle (request):
 	json_data = JSONParser().parse(request)
-	user = User.objects.filter(user_id=json_data["user_id"])
+	user = User.objects.get(user_id=json_data["user_id"])
 	handleSite = json_data["handleSite"]
 	handle = json_data["handle"]
 	if (handleSite == 'codechef'):
@@ -54,7 +54,7 @@ def setHandle (request):
 		user.hackerr_handle = handle
 	elif (handleSite ==  'kaggle'):
 		user.kaggle_handle = handle 
-#	user.save()
+	user.save()
 	return JSONResponse(json_data, status=400)
 
 def getUsers (request):
