@@ -55,7 +55,7 @@ def setHandle (request):
 	elif (handleSite ==  'kaggle'):
 		user.kaggle_handle = handle 
 #	user.save()
-	return JSONResponse(user, status=400)
+	return JSONResponse(json_data, status=400)
 
 def getUsers (request):
 	serializer = userSerializerSecure(User.objects.all(), many=True)
