@@ -25,7 +25,36 @@ def index(request):
 @csrf_exempt
 def createUser (request):
 	json_data = JSONParser().parse(request)
-	return JSONResponse(json_data, status = 400)
+	serializer = userSerializer (data=json_data)
+	if (serializer.is_valid()) :
+		serializer.save()
+		serializer1 = userSerializerSecure(data=json_data)
+		if serializer1.is_valid():
+			return JSONResponse(serializer1.data, status=400)
+		return JSONResponse(serializer1.errors, status=400)
+	return JSONResponse(serializer.errors, status = 400)
+
+def setHandle (request):
+	json_data = JSONParser().parse(request)
+	user = User.objects.filter(user_id=json_data["user_id"])
+	handleSite = json_data["handleSite"]
+	handle = json_data["handle"]
+	if (handleSite == 'codechef'):
+		user.chef_handle = handle
+	elif (handleSite == 'codeforces') :
+		user.forces_handle = handle
+	elif (handleSite == 'topcoder'):
+		user.tc_handle = handle
+	elif (handleSite == 'spoj') :
+		user.spoj_handle = handle
+	elif (handleSite == 'hackerearth'):
+		user.hackere_handle = handle
+	elif (handleSite == 'hackerrank'):
+		user.hackerr_handle = handle
+	elif (handleSite ==  'kaggle'):
+		user.kaggle_handle = handle 
+	user.save()
+	return JSONResponse(user, status=400)
 	
 
 
