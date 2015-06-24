@@ -57,7 +57,7 @@ def setHandle (request):
 	return JSONResponse(user, status=400)
 
 def getUsers (request):
-	serializer = userSerializerSecure(User.object.all(), many=True)
+	serializer = userSerializerSecure(User.objects.all(), many=True)
 	return JSONResponse(serializer.data)
 	
 
