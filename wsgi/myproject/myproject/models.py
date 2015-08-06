@@ -1,11 +1,10 @@
 from django.db import models 
 
 class User(models.Model):
-	user_id = models.CharField (max_length=50, primary_key=True)
 	password = models.CharField (max_length=50)
 	first_name = models.CharField (max_length=128)
 	last_name = models.CharField (max_length=128)
-	email_id = models.EmailField()
+	email_id = models.EmailField(primary_key=True)
 	chef_handle = models.CharField(max_length=50, default = '-')
 	tc_handle = models.CharField(max_length=50, default = '-')
 	forces_handle = models.CharField(max_length=50, default = '-')

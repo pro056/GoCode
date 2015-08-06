@@ -12,5 +12,10 @@ urlpatterns = patterns('',
     url(r'^createuser/$', createUser),
     url(r'^test/$', index),
     url(r'^sethandle/$', setHandle),
-    url(r'^getusers/$', getUsers)
+    url(r'^getusers/$', getUsers),
+    url(r'^update/$', update),
+    url(r'^getpastcontest/$', getPastContests),
+    url(r'^getcurrentcontest/$', getCurrContests),
+    url(r'^getfuturecontest/$', getFutureContests),
+    url(r'^getall/$', getAllContests)
 )
