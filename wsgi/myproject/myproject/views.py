@@ -10,6 +10,7 @@ import simplejson
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 import requests
+from bs4 import BeautifulSoup
 from django.http import HttpResponse
 
 
