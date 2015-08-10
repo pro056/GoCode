@@ -37,7 +37,7 @@ def createUser (request):
 @csrf_exempt
 def setHandle (request):
 	json_data = JSONParser().parse(request)
-	user = User.objects.get(user_id=json_data["user_id"])
+	user = User.objects.get(email_id=json_data["email"])
 	handleSite = json_data["handleSite"]
 	handle = json_data["handle"]
 	if (handleSite == 'codechef'):
