@@ -223,11 +223,11 @@ def getPastContests(request):
         con_dict['end'] = con.contest_end_time
         con_dict['status'] = con.contest_status
         if ((con.contest_site == 'codechef.com' and user.chef_handle != '-') or 
-        	 con.contest_site == 'topcoder.com' and user.tc_handle != '-') or
-        	 con.contest_site == 'hackerearth.com' and user.hackere_handle != '-') or
-			 con.contest_site == 'kaggle.com' and user.kaggle_handle != '-') or
-			 con.contest_site == 'codeforces.com' and user.forces_handle != '-') or
-			 con.contest_site == 'hackerrank.com' and user.hackerr_handle != '-')):
+        	(con.contest_site == 'topcoder.com' and user.tc_handle != '-') or
+        	(con.contest_site == 'hackerearth.com' and user.hackere_handle != '-') or
+			(con.contest_site == 'kaggle.com' and user.kaggle_handle != '-') or
+			(con.contest_site == 'codeforces.com' and user.forces_handle != '-') or
+			(con.contest_site == 'hackerrank.com' and user.hackerr_handle != '-')):
         	to_json.append(con_dict)
 
     response_data = simplejson.dumps(to_json)
@@ -247,11 +247,11 @@ def getCurrContests(request):
         con_dict['end'] = con.contest_end_time
         con_dict['status'] = con.contest_status
         if ((con.contest_site == 'codechef.com' and user.chef_handle != '-') or 
-        	 con.contest_site == 'topcoder.com' and user.tc_handle != '-') or
-        	 con.contest_site == 'hackerearth.com' and user.hackere_handle != '-') or
-			 con.contest_site == 'kaggle.com' and user.kaggle_handle != '-') or
-			 con.contest_site == 'codeforces.com' and user.forces_handle != '-') or
-			 con.contest_site == 'hackerrank.com' and user.hackerr_handle != '-')):
+        	(con.contest_site == 'topcoder.com' and user.tc_handle != '-') or
+        	(con.contest_site == 'hackerearth.com' and user.hackere_handle != '-') or
+			(con.contest_site == 'kaggle.com' and user.kaggle_handle != '-') or
+			(con.contest_site == 'codeforces.com' and user.forces_handle != '-') or
+			(con.contest_site == 'hackerrank.com' and user.hackerr_handle != '-')):
         	to_json.append(con_dict)
 
     response_data = simplejson.dumps(to_json)
@@ -271,11 +271,11 @@ def getFutureContests(request):
         con_dict['end'] = con.contest_end_time
         con_dict['status'] = con.contest_status
         if ((con.contest_site == 'codechef.com' and user.chef_handle != '-') or 
-        	 con.contest_site == 'topcoder.com' and user.tc_handle != '-') or
-        	 con.contest_site == 'hackerearth.com' and user.hackere_handle != '-') or
-			 con.contest_site == 'kaggle.com' and user.kaggle_handle != '-') or
-			 con.contest_site == 'codeforces.com' and user.forces_handle != '-') or
-			 con.contest_site == 'hackerrank.com' and user.hackerr_handle != '-')):
+        	(con.contest_site == 'topcoder.com' and user.tc_handle != '-') or
+        	(con.contest_site == 'hackerearth.com' and user.hackere_handle != '-') or
+			(con.contest_site == 'kaggle.com' and user.kaggle_handle != '-') or
+			(con.contest_site == 'codeforces.com' and user.forces_handle != '-') or
+			(con.contest_site == 'hackerrank.com' and user.hackerr_handle != '-')):
         	to_json.append(con_dict)
 
     response_data = simplejson.dumps(to_json)
