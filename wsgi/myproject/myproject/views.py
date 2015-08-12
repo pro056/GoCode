@@ -153,8 +153,8 @@ def update(request):
     return HttpResponse(status=201)
 
 def getAllContests(request):
-	json_data = JSONParser().parse(request)
-	user = User.objects.get(email_id=json_data["email"])
+    json_data = JSONParser().parse(request)
+    user = User.objects.get(email_id=json_data["email"])
     p_contest = Past_Contests.objects.all()
     r_contest = Running_Contests.objects.all()
     f_contest = Future_Contests.objects.all()
