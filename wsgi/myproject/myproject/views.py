@@ -23,7 +23,7 @@ class JSONResponse(HttpResponse):
 def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 
-@csrf_exempt
+@method_decorator(csrf_exempt)
 def createUser (request):
 	json_data = JSONParser().parse(request)
 	serializer = userSerializer (data=json_data)
@@ -35,7 +35,7 @@ def createUser (request):
 		return JSONResponse(serializer1.errors, status=400)
 	return JSONResponse(serializer.errors, status = 400)
 
-@csrf_exempt
+@method_decorator(csrf_exempt)
 def setHandle (request):
 	json_data = JSONParser().parse(request)
 	user = User.objects.get(email_id=json_data["email"])
@@ -62,7 +62,7 @@ def getUsers (request):
 	serializer = userSerializerSecure(User.objects.all(), many=True)
 	return JSONResponse(serializer.data)
 
-@csrf_exempt
+@method_decorator(csrf_exempt)
 def update(request):
     r = requests.get ("http://www.clist.by")
     data = r.text
