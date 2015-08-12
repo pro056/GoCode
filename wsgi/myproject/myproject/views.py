@@ -62,7 +62,7 @@ def getUsers (request):
 	serializer = userSerializerSecure(User.objects.all(), many=True)
 	return JSONResponse(serializer.data)
 
-
+@csrf_exempt
 def update(request):
     r = requests.get ("http://www.clist.by")
     data = r.text
