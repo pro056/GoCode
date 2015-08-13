@@ -3,7 +3,7 @@ from django.db import models
 class User(models.Model):
 	password = models.CharField (max_length=50)
 	name = models.CharField (max_length=128)
-	phone_no = models.CharField (max_length=12)
+	phone_no = models.CharField (max_length=14)
 	email_id = models.EmailField(primary_key=True)
 	chef_handle = models.CharField(max_length=50, default = '-')
 	tc_handle = models.CharField(max_length=50, default = '-')
