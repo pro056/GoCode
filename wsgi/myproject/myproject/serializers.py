@@ -5,9 +5,9 @@ from models import User
 class userSerializer (serializers.ModelSerializer):
 	class Meta:
 		model = User
-		fields = ('first_name','password','phone_no','email_id')
+		fields = ('name','password','phone_no','email_id')
 
 class userSerializerSecure (serializers.ModelSerializer):
 	class Meta:
 		model = User
-		fields = ('first_name','phone_no','email_id','chef_handle')
+		fields = ('name','phone_no','email_id','chef_handle')

@@ -2,13 +2,12 @@ from django.db import models
 
 class User(models.Model):
 	password = models.CharField (max_length=50)
-	first_name = models.CharField (max_length=128)
+	name = models.CharField (max_length=128)
 	phone_no = models.CharField (max_length=12)
 	email_id = models.EmailField(primary_key=True)
 	chef_handle = models.CharField(max_length=50, default = '-')
 	tc_handle = models.CharField(max_length=50, default = '-')
 	forces_handle = models.CharField(max_length=50, default = '-')
-	spoj_handle = models.CharField(max_length=50, default = '-')
 	hackere_handle = models.CharField(max_length=50, default = '-')
 	hackerr_handle = models.CharField(max_length=50, default = '-')
 	kaggle_handle  = models.CharField(max_length=49, default = '-')

@@ -212,6 +212,8 @@ def getAllContests(request):
 
 def getPastContests(request):
     p_contest = Past_Contests.objects.all()
+    json_data = JSONParser().parse(request)
+    user = User.objects.get(email_id=json_data["email"])
     
     to_json = []
     for con in p_contest:
@@ -236,6 +238,8 @@ def getPastContests(request):
 
 def getCurrContests(request):
     p_contest = Running_Contests.objects.all()
+    json_data = JSONParser().parse(request)
+    user = User.objects.get(email_id=json_data["email"])
     
     to_json = []
     for con in p_contest:
@@ -260,6 +264,8 @@ def getCurrContests(request):
 
 def getFutureContests(request):
     p_contest = Future_Contests.objects.all()
+    json_data = JSONParser().parse(request)
+    user = User.objects.get(email_id=json_data["email"])
     
     to_json = []
     for con in p_contest:
